@@ -64,6 +64,16 @@ void swap(Item *arr, size_t i, size_t j) {
 }
 
 /**
+ * Alternative method for swap. Uses pointers to the two
+ * array positions instead of indices of the array positions.
+ */
+void swap2(Item *ai, Item *aj) {
+  Item tmp = *ai;
+  *ai = *aj;
+  *aj = tmp;
+}
+
+/**
  * Helper function to print out an array
  *
  * Example:
@@ -95,7 +105,11 @@ int main() {
   printArray(arr, n); // ??
 
   printf("Swap arr[1] with arr[2]...\n");
-  swap(arr, 1, 2);
+  swap2(&(arr[1]), &(arr[2]));
+  printArray(arr, n); // ??
+
+  printf("Swap arr[0] with arr[2]...\n");
+  swap2(arr, arr + 2);
   printArray(arr, n); // ??
 
   printf("Compare 4 to 7: %d\n", compare(4, 7)); // ??
